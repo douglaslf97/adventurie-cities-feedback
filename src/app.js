@@ -13,6 +13,7 @@ app.use(express.urlencoded({
 
 require('./controllers/feedback')(app);
 require('./controllers/access')(app);
+require('./controllers/pre-register')(app);
 
 app.get('/', (req, res)=>{
   return res.send('Running!');

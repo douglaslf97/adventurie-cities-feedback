@@ -3,4 +3,8 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-module.exports = validateEmail;
+function validatePhone(phone){
+  return /\(\d{2}\) \d{4,5}-\d{4}/.test(phone);
+}
+console.log(validatePhone('(31) 9451-5496'))
+module.exports = { validateEmail, validatePhone };

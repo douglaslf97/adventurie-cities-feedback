@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 const Feedbacks = require("../../models/feedbacks");
-const validatorEmail = require("../../utils/validators");
+const { validateEmail } = require("../../utils/validators");
 
 routes.get("/", async (req, res) => {
   const feedbacks = await Feedbacks.find({});
@@ -15,7 +15,7 @@ routes.post("/add", async (req, res) => {
     if (!email) return res.status(400).send({ error: "Email not provided" });
     if (!text) return res.status(400).send({ error: "Text not provided" });
     if (!name) return res.status(400).send({ error: "Name not provided" });
-    if (!validatorEmail(email))
+    if (!validateEmail(email))
       return res.status(400).send({ error: "Invalid email" });
     const feedback = await Feedbacks.create({ name, email, text});
     return res.status(200).send(feedback);
