@@ -1,5 +1,5 @@
 const { Schema, model }  = require('../../database');
-const { validatePhone, validateEmail } = require('../../utils/validators');
+
 const preRegisterSchema = new Schema({
   name:{
     type: String,
@@ -8,22 +8,14 @@ const preRegisterSchema = new Schema({
     required: true
   },
   email: {
-    type: String,
-    validate: {
-      validator: validateEmail(v),
-      message: props => `${props.value} is not a valid email!`
-    },    
+    type: String,   
     minlength: 5,
     maxlength: 40
   },
   phone: {
+    type: String,   
     minlength: 11,
-    maxlength: 15,
-    type: String,
-    validate: {
-      validator: validatePhone(v),
-      message: props => `${props.value} is not a valid phone number!`
-    },    
+    maxlength: 15,    
   }
 }, {
   timestamps: true
