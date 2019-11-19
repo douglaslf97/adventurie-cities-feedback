@@ -19,7 +19,7 @@ routes.post("/add", async (req, res) => {
       return res.status(400).send({ error: "Invalid email" });
     if (!validatePhone(phone) && phone)
       return res.status(400).send({ error: "Invalid phone number" });
-    const preRegister = await PreRegister.create({ name, email, text });
+    const preRegister = await PreRegister.create({ name, email, phone });
     return res.status(200).send(preRegister);
   } catch (error) {
     return res.status(400).send({ error });
