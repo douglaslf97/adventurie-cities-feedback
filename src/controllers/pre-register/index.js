@@ -18,8 +18,8 @@ routes.post("/add", async (req, res) => {
       return res.status(400).send({ error: "Invalid email" });
     if (!validatePhone(phone) && phone)
       return res.status(400).send({ error: "Invalid phone number" });
-    const emailExists = await PreRegister.find({email});
-    if(emailExists && email) return res.status(400).send({ error: "Email already exists" });
+    /*const emailExists = await PreRegister.find({email});
+    if(emailExists && email) return res.status(400).send({ error: "Email already exists" });*/
     const preRegister = await PreRegister.create({ name, email, phone });
     try{
       const id = preRegister._id;
