@@ -18,7 +18,11 @@ const preRegisterSchema = new Schema({
     type: String,   
     minlength: 11,
     maxlength: 15,   
-    lowercase: true 
+    lowercase: true,
+  },
+  received: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

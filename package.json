@@ -12,8 +12,13 @@
     "cors": "^2.8.5",
     "date-fns": "^2.6.0",
     "dotenv": "^8.2.0",
+    "email-templates": "^6.0.3",
     "express": "^4.17.1",
-    "mongoose": "^5.7.7"
+    "googleapis": "^45.0.0",
+    "mongoose": "^5.7.7",
+    "nodemailer": "^6.3.1",
+    "nodemailer-express-handlebars": "^3.1.0",
+    "nodemailer-plugin-inline-base64": "^2.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
