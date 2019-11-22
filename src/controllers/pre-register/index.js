@@ -23,7 +23,7 @@ routes.post("/add", async (req, res) => {
     const preRegister = await PreRegister.create({ name, email, phone });
     try{
       const id = preRegister._id;
-      const { smtpTransport, mailOptions } = await sendEmail(email, "Adventure Cities Pré-Cadastro");
+      const { smtpTransport, mailOptions } = await sendEmail(email, name.trim().split(' ')[0], "Adventure Cities Pré-Cadastro");
       smtpTransport.sendMail(mailOptions, async (error, response)=>{
         if(error)return;
         return await PreRegister.findByIdAndUpdate(id, {

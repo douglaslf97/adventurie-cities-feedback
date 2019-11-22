@@ -9,7 +9,7 @@ const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 
-module.exports = async function sendMail(emailTo, subject) {
+module.exports = async function sendMail(emailTo, name, subject) {
   const oauth2Client = new OAuth2(
     process.env.MAIL_CLIENT_ID, //CLIENT ID 
     process.env.MAIL_CLIENT_SECRET, 
@@ -59,7 +59,7 @@ module.exports = async function sendMail(emailTo, subject) {
         cid: 'instagram'
       },    
     ],
-    html: html('<h3>Obrigado por se inscrever!</h3><p>Para não perder nenhuma novidade do jogo siga nossas redes sociais e fique por dentro das atualizações.</p>')
+    html: html(`h3>Obrigado ${name} por se inscrever!</h3><p>Para não perder nenhuma novidade do jogo siga nossas redes sociais e fique por dentro das atualizações.</p>`)
   }; 
   smtpTransport.use('compile', base64Email(mailOptions));
   return { smtpTransport, mailOptions };  
