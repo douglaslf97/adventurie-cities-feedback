@@ -59,7 +59,7 @@ module.exports = async function sendMail(emailTo, name, subject) {
         cid: 'instagram'
       },    
     ],
-    html: html(`h3>Obrigado ${name} por se inscrever!</h3><p>Para não perder nenhuma novidade do jogo siga nossas redes sociais e fique por dentro das atualizações.</p>`)
+    html: html(`<h3>Obrigado <strong>${name}</strong> por se inscrever!</h3><p>Para não perder nenhuma novidade do jogo siga nossas redes sociais e fique por dentro das atualizações.</p>`)
   }; 
   smtpTransport.use('compile', base64Email(mailOptions));
   return { smtpTransport, mailOptions };  
